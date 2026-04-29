@@ -51,7 +51,7 @@ public:
 };
 
 // TC = O(m*n) where m is the number of rows and n is the number of columns in the grid, as we need to visit each cell once in the worst case
-//  SC = O(m*n) in the worst case when the grid is filled with land, as we need to store the visited cells in a queue for BFS
+//  SC = O(m*n) in the worst case when the grid is filled with land, as we need to store the visited cells in a queue for DFS
 
 class Solution
 {
