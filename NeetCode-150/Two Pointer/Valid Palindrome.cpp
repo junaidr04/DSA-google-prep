@@ -1,5 +1,5 @@
 // Problem: Valid Palindrome
-// Platform: LeetCode
+// Platform: NeetCode
 // Link: https://neetcode.io/problems/is-palindrome/question
 // time complexity: O(n)
 // space complexity: O(1)
