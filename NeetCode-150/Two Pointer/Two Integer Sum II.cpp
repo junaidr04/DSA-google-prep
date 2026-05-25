@@ -1,5 +1,5 @@
 // Problem: Two Integer Sum II
-// Platform: LeetCode
+// Platform: NeetCode
 // Link: https://neetcode.io/problems/two-integer-sum-ii/question
 // time complexity: O(n)
 // space complexity: O(1)
