@@ -1,3 +1,34 @@
+/*
+backtrack(0, [1,2,3], curr=[], ans=[])
+  → ans e push: ans = [[]]
+  → loop i=0 (nums[0]=1):
+      curr.push(1) → curr=[1]
+      backtrack(1, ..., curr=[1], ans)
+        → ans e push: ans = [[], [1]]
+        → loop i=1 (nums[1]=2):
+            curr.push(2) → curr=[1,2]
+            backtrack(2, ..., curr=[1,2], ans)
+              → ans e push: ans = [[], [1], [1,2]]
+              → loop i=2 (nums[2]=3):
+                  curr.push(3) → curr=[1,2,3]
+                  backtrack(3, ..., curr=[1,2,3], ans)
+                    → ans e push: ans = [..., [1,2,3]]
+                    → loop: i=3, nums.size()=3, loop condition false → return
+                  curr.pop_back() → curr=[1,2]
+              → loop shesh
+            curr.pop_back() → curr=[1]
+        → loop i=2 (nums[2]=3):
+            curr.push(3) → curr=[1,3]
+            backtrack(3, ..., curr=[1,3], ans)
+              → ans e push: ans = [..., [1,3]]
+              → loop: immediately return (i=3 >= size)
+            curr.pop_back() → curr=[1]
+        → loop shesh
+      curr.pop_back() → curr=[]
+  → loop i=1 (nums[1]=2): ... (similar, dibe [2], [2,3])
+  → loop i=2 (nums[2]=3): ... (dibe [3])
+*/
+
 // Problem: Subsets
 // Platform: NeetCode
 // Link: https://neetcode.io/problems/subsets
