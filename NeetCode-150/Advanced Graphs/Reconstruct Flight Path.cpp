@@ -73,19 +73,15 @@ public:
     // final answer store korার jonno (reverse order e build hobe)
     vector<string> result;
     vector<string> findItinerary(vector<vector<string>>& tickets) {
-        // Step 1: Adjacency list (graph) banai
-        // প্রতিটা ticket [from, to] niye graph[from] e 'to' insert kori
+        // Step 1: Adjacency list (graph) bana.. প্রতিটা ticket [from, to] niye graph[from] e 'to' insert kori
         for (auto& t : tickets) 
         {
-            graph[t[0]].insert(t[1]);
-            // multiset ব্যবহার korার karon: eita automatically ALPHABETICAL 
-            // order e sort kore rakhe, ar duplicate (same destination 
-            // multiple bar) o allow kore
+            graph[t[0]].insert(t[1]); 
         }
         // Step 2: DFS shuru kori "JFK" theke (problem statement onujayi fixed start)
         dfs("JFK");
         // Step 3: DFS shesh hole result ta REVERSE order e build hoy 
-        // (keno seটা niche explain korবো), tai reverse kore thik order e ante hobe
+        // (keno sheta niche explain korবো), tai reverse kore thik order e ante hobe
         reverse(result.begin(), result.end());
         return result;
     }
@@ -96,8 +92,7 @@ public:
         {
             // multiset er PROTHOM element ber kori — eita SHOBCHEYE CHOTO 
             // (alphabetically) destination, karon multiset sorted thake
-            string next = *graph[node].begin();
-            
+            string next = *graph[node].begin(); 
             // ei ticket ta "use kore fellam" — tai graph theke REMOVE kori
             // (jate abar dobara ei EKই ticket use na hoy)
             graph[node].erase(graph[node].begin());
@@ -107,7 +102,7 @@ public:
         }
         
         // *** KEY PART: while loop shesh hoye গেলে (mane 'node' theke r 
-        // kono ticket bakি nai, DEAD END) ***
+        // kono ticket baki nai, DEAD END) ***
         // tokhon 'node' ke result e push kori
         result.push_back(node);
     }
