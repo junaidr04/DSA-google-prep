@@ -39,3 +39,34 @@ public:
         return dp[n-1];
     }
 };
+
+
+// Time Complexity: O(n) (same as before, loop ekbar chole)
+// Space Complexity: O(1) (age silo O(n), ekhon shudhu 2 ta variable — eta হলো real optimization)
+
+
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        int n = nums.size();
+        // prev2 = dp[i-2] represent kore, prev1 = dp[i-1] represent kore
+        // shuru te dp[0] ar dp[1] er base case emনভাবে boshai:
+        // prev2 = "dp[-1]" hisebe dhori (kono bari nai age), tai 0
+        int prev2 = 0;
+        // prev1 = dp[0] = nums[0] (prothom barir maximum)
+        int prev1 = 0;
+        // Loop protita bari (index 0 theke n-1) niye
+        for(int i = 0; i < n; i++)
+        {
+            // curr = dp[i] = max(dp[i-1], dp[i-2] + nums[i])
+            // prev1 -> dp[i-1], prev2 -> dp[i-2]
+            int curr = max(prev1, prev2 + nums[i]);
+            // Slide window: age er prev1 ekhon prev2 hবে
+            prev2 = prev1;
+            // curr ekhon prev1 hবে (porer iteration er jonno)
+            prev1 = curr;
+        }
+        // Loop shesh hবার por prev1 e thakবে shob bari dekhার por maximum money
+        return prev1;
+    }
+};
